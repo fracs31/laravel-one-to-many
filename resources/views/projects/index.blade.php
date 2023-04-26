@@ -43,6 +43,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Titolo</th>
                     <th scope="col">Cliente</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">URL</th>
                     <th scope="col">Data di cancellazione</th>
@@ -62,6 +63,8 @@
                         <td>{{ $project->title }}</td>
                         {{-- Cliente --}}
                         <td>{{ $project->client }}</td>
+                        {{-- Tipo --}}
+                        <td>{{ $project->type->name }}</td>
                         {{-- Descrizione --}}
                         <td>{{ $project->description }}</td>
                         {{-- URL --}}
