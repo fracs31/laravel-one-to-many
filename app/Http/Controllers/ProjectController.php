@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Str; //str
 use Illuminate\Http\Request; //request
+use App\Models\Type; //type
 
 class ProjectController extends Controller
 {
@@ -35,7 +36,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("projects.create"); //restituisco la vista "create"
+        $types = Type::orderBy("name", "asc")->get(); //tipi di progetto
+        return view("projects.create", compact("types")); //restituisco la vista "create"
     }
 
     /**

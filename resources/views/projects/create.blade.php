@@ -21,12 +21,26 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
-            {{-- Titolo --}}
+            {{-- Cliente --}}
             <div class="col-12">
                 <label for="client" class="form-label">Cliente</label>
                 <input type="text" class="form-control @error("client") is-invalid @enderror" name="client" value="{{ old("client") }}">
                 {{-- Errore --}}
                 @error("client")
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            {{-- Tipo --}}
+            <div class="col-12">
+                <label for="type_id" class="form-label">Tipo</label>
+                <select name="type_id" class="form-select @error("category_id") is-invalid @enderror" aria-label="Default select example">
+                    <option selected>- Seleziona il tipo di progetto -</option>
+                    @foreach ($types as $type)
+                        <option @selected( old('type_id') == $type->id ) value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                </select>
+                {{-- Errore --}}
+                @error("type_id")
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>

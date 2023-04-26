@@ -26,7 +26,8 @@ class StoreProjectRequest extends FormRequest
         return [
             "title" => ["required", "max:255", "unique:projects,title"], //titolo
             "client" => ["required", "max:255"], //cliente
-            "description" => ["required", "max:255"] //descrizione
+            "description" => ["required", "max:255"], //descrizione
+            "type_id" => ["exists:types,id"] //id del tipo di progetto
         ];
     }
 }
