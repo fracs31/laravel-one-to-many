@@ -31,7 +31,8 @@ class UpdateProjectRequest extends FormRequest
                 Rule::unique("projects", "title")->ignore($this->project)
             ], //titolo
             "client" => ["required", "max:255"], //cliente
-            "description" => ["required", "max:255"] //descrizione
+            "description" => ["required", "max:255"], //descrizione
+            "type_id" => ["exists:types,id"] //tipo di progetto
         ];
     }
 }

@@ -74,7 +74,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view("projects.edit", compact("project")); //restituisco la vista "edit"
+        $types = Type::orderBy("name", "asc")->get(); //tipi di progetto
+        return view("projects.edit", compact("project", "types")); //restituisco la vista "edit"
     }
 
     /**

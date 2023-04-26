@@ -33,10 +33,10 @@
             {{-- Tipo --}}
             <div class="col-12">
                 <label for="type_id" class="form-label">Tipo</label>
-                <select name="type_id" class="form-select @error("category_id") is-invalid @enderror" aria-label="Default select example">
+                <select name="type_id" class="form-select @error("type_id") is-invalid @enderror" aria-label="Default select example">
                     <option selected>- Seleziona il tipo di progetto -</option>
                     @foreach ($types as $type)
-                        <option @selected( old('type_id') == $type->id ) value="{{ $type->id }}">{{ $type->name }}</option>
+                        <option @selected(old("type_id") == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
                 </select>
                 {{-- Errore --}}
